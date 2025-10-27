@@ -15,6 +15,12 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
+                <flux:navlist.group :heading="__('user management')" class="grid">
+                    <flux:navlist.item icon="user-group" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>{{ __('Manage User') }}</flux:navlist.item>
+                    @can(abilities:'role.view')
+                    <flux:navlist.item icon="user-circle" :href="route('role.manager')" :current="request()->routeIs('role.manager')" wire:navigate>{{ __('Manage Role') }}</flux:navlist.item>
+                    @endcan('role.view')
+                </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
@@ -124,6 +130,7 @@
                 </flux:menu>
             </flux:dropdown>
         </flux:header>
+
 
         {{ $slot }}
 
