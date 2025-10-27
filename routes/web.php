@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\EventManagement;
+use App\Livewire\NewsManagement;
 use App\Livewire\RoleManagement;
 use App\Livewire\UserManagement;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +23,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/user-management',UserManagement::class)->name('user.index');
     Route::get('/role-management',RoleManagement::class)->name('role.manager');
+    Route::get('/news-management',NewsManagement::class)->name('news.manager');
+    Route::get('/event-management',EventManagement::class)->name('event.manager');
 
 
 

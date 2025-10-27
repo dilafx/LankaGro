@@ -21,6 +21,14 @@
                     <flux:navlist.item icon="user-circle" :href="route('role.manager')" :current="request()->routeIs('role.manager')" wire:navigate>{{ __('Manage Role') }}</flux:navlist.item>
                     @endcan('role.view')
                 </flux:navlist.group>
+                <flux:navlist.group :heading="__('content management')" class="grid">
+                    <flux:navlist.item icon="newspaper" :href="route('news.manager')" :current="request()->routeIs('news.manager')" wire:navigate>{{ __('Manage News') }}</flux:navlist.item>
+
+                </flux:navlist.group>
+                <flux:navlist.group :heading="__('event management')" class="grid">
+                    <flux:navlist.item icon="calendar-days" :href="route('event.manager')" :current="request()->routeIs('event.manager')" wire:navigate>{{ __('Manage Event') }}</flux:navlist.item>
+
+                </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
