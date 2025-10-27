@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\RoleManagement;
+use App\Livewire\UserManagement;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -15,6 +17,12 @@ Route::view('admin/dashboard', 'admin.dashboard')
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
+
+
+    Route::get('/user-management',UserManagement::class)->name('user.index');
+    Route::get('/role-management',RoleManagement::class)->name('role.manager');
+
+
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');
