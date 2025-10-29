@@ -1,6 +1,10 @@
 <?php
 
+use App\Livewire\CropSolutionsManagement;
+use App\Livewire\EventManagement;
+use App\Livewire\NewsManagement;
 use App\Livewire\RoleManagement;
+use App\Livewire\TutorialManagement;
 use App\Livewire\UserManagement;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -21,6 +25,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/user-management',UserManagement::class)->name('user.index');
     Route::get('/role-management',RoleManagement::class)->name('role.manager');
+    Route::get('/news-management',NewsManagement::class)->name('news.manager');
+    Route::get('/event-management',EventManagement::class)->name('event.manager');
+    Route::get('/tutorial-management',TutorialManagement::class)->name('tutorial.manager');
+    Route::get('/crop-solutions-management',CropSolutionsManagement::class)->name('crop.solution.manager');
 
 
 
