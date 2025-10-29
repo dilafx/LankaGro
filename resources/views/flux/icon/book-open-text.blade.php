@@ -1,5 +1,9 @@
 {{-- Credit: Lucide (https://lucide.dev) --}}
 
+<?php
+use Livewire\Flux\Flux;
+?>
+
 @props([
     'variant' => 'outline',
 ])
