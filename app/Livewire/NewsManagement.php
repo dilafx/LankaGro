@@ -35,13 +35,14 @@ class NewsManagement extends Component
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'status' => 'required|in:draft,published',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Rule for new uploads
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 
     public function create(): void
     {
-        // Optional: Add authorization check like: $this->authorize('news.create');
+
+        $this->authorize('news.create');
         $this->resetForm();
         $this->isEditing = false;
         $this->showModal = true;
@@ -49,14 +50,14 @@ class NewsManagement extends Component
 
     public function edit($id): void
     {
-        // Optional: Add authorization check like: $this->authorize('news.edit');
+        $this->authorize('news.edit');
         $newsItem = News::findOrFail($id);
         $this->newsId = $newsItem->id;
         $this->title = $newsItem->title;
         $this->content = $newsItem->content;
         $this->status = $newsItem->status;
-        $this->existingImageUrl = $newsItem->image; // Store URL of current image
-        $this->image = null; // Clear previous file input
+        $this->existingImageUrl = $newsItem->image;
+        $this->image = null;
 
         $this->isEditing = true;
         $this->showModal = true;
@@ -64,29 +65,29 @@ class NewsManagement extends Component
 
     public function save(): void
     {
-         // Optional: Add authorization check: $this->authorize($this->isEditing ? 'news.edit' : 'news.create');
 
+        $this->authorize($this->isEditing ? 'news.edit' : 'news.create');
         $this->validate();
 
         $newsData = [
             'title' => $this->title,
             'content' => $this->content,
             'status' => $this->status,
-            'user_id' => Auth::id(), // Assign current logged-in user
+            'user_id' => Auth::id(),
         ];
 
         // Handle file upload
         if ($this->image) {
-            // Delete old image if editing & new one uploaded
+
             if ($this->isEditing && $this->existingImageUrl) {
                 $oldPath = Str::replace('/storage', 'public', $this->existingImageUrl);
                 if (Storage::exists($oldPath)) {
                     Storage::delete($oldPath);
                 }
             }
-            // Store new image in 'public/news_images'
+
             $path = $this->image->store('public/news_images');
-            $newsData['image'] = Storage::url($path); // Store the public URL
+            $newsData['image'] = Storage::url($path);
         }
 
         // Update or Create
@@ -104,10 +105,11 @@ class NewsManagement extends Component
 
     public function delete($id): void
     {
-         // Optional: Add authorization check like: $this->authorize('news.delete');
+
+         $this->authorize('news.delete');
         $newsItem = News::findOrFail($id);
 
-        // Delete image from storage if it exists
+
         if ($newsItem->image) {
             $path = Str::replace('/storage', 'public', $newsItem->image);
              if (Storage::exists($path)) {
@@ -132,10 +134,11 @@ class NewsManagement extends Component
     }
     public function render()
     {
-         // Optional: Add authorization check like: $this->authorize('news.view');
+
+         $this->authorize(ability:'news.view');
         return view('livewire.news-management', [
-            // Fetch news items with their authors, latest first, paginated
             'newsItems' => News::with('user')->latest()->paginate(10),
+
         ]);
     }
 }

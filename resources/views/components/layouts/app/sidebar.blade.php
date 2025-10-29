@@ -23,6 +23,8 @@
                 </flux:navlist.group>
                 <flux:navlist.group :heading="__('content management')" class="grid">
                     <flux:navlist.item icon="newspaper" :href="route('news.manager')" :current="request()->routeIs('news.manager')" wire:navigate>{{ __('Manage News') }}</flux:navlist.item>
+                    <flux:navlist.item icon="video-camera" :href="route('tutorial.manager')" :current="request()->routeIs('tutorial.manager')" wire:navigate>{{ __('Manage Tutorials') }}</flux:navlist.item>
+                    <flux:navlist.item icon="information-circle" :href="route('crop.solution.manager')" :current="request()->routeIs('crop.solution.manager')" wire:navigate>{{ __('Crop Solutions') }}</flux:navlist.item>
 
                 </flux:navlist.group>
                 <flux:navlist.group :heading="__('event management')" class="grid">

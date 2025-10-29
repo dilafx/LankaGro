@@ -30,11 +30,25 @@ class RolePermissionSeeder extends Seeder
             'news.edit',
             'news.delete',
 
-            // Category permissions
+            // event permissions
             'event.view',
             'event.create',
             'event.edit',
             'event.delete',
+
+            // Tutorial permissions
+            'tutorial.view',
+            'tutorial.create',
+            'tutorial.edit',
+            'tutorial.delete',
+
+            // crop solutions permissions
+
+            'cropsolution.view',
+            'cropsolution.create',
+            'cropsolution.edit',
+            'cropsolution.delete',
+
 
             // Role & Permission management
             'role.view',
