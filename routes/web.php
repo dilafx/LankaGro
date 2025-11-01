@@ -41,3 +41,11 @@ require __DIR__.'/auth.php';
 
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/contact', 'pages.contact')->name('contact');
+Route::view('/calculator','pages.calculator')->name('calculator');
+Route::view('/events','pages.events')->name('events');
+Route::view('/news','pages.news')->name('news');
+Route::view('/solutions','pages.solutions')->name('solutions');
+Route::view('/tutorial','pages.tutorial')->name('tutorial');
+Route::view('/home','pages.home')->name('home');
+
+
