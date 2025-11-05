@@ -44,7 +44,7 @@
                 <p class="text-gray-700 mb-6 max-w-xl mx-auto">
                     Sign up to access expert advice, tutorials, and a community of farmers sharing best practices.
                 </p>
-                <a href="{{ route('register') }}" class="bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                <a href="" class="bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
                     Sign Up Now
                 </a>
             </section>

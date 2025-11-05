@@ -1,5 +1,7 @@
 {{-- Credit: Lucide (https://lucide.dev) --}}
 
+
+
 @props([
     'variant' => 'outline',
 ])
@@ -9,14 +11,12 @@
         throw new \Exception('The "solid" variant is not supported in Lucide.');
     }
 
-    $classes = Flux::classes('shrink-0')->add(
-        match ($variant) {
-            'outline' => '[:where(&)]:size-6',
-            'solid' => '[:where(&)]:size-6',
-            'mini' => '[:where(&)]:size-5',
-            'micro' => '[:where(&)]:size-4',
-        },
-    );
+    $classes = trim('shrink-0 ' . match ($variant) {
+        'outline' => '[:where(&)]:size-6',
+        'solid' => '[:where(&)]:size-6',
+        'mini' => '[:where(&)]:size-5',
+        'micro' => '[:where(&)]:size-4',
+    });
 
     $strokeWidth = match ($variant) {
         'outline' => 2,
