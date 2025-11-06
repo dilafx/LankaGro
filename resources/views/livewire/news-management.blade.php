@@ -38,7 +38,7 @@
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $item->user->name ?? 'N/A' }}</td> {{-- Show author name --}}
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{-- Status Badge --}}
-                            <span class="inline-flex px-2 py-1 text-xs rounded-full {{ $item->status == 'published' ? 'bg-green-100 dark:bg-green-700 text-green-800 dark:text-green-100' : 'bg-yellow-100 dark:bg-yellow-700 text-yellow-800 dark:text-yellow-100' }}">
+                            <span class="inline-flex px-2 py-1 text-xs rounded-full {{ $item->status == 'published' ? 'bg-green-100 dark:bg-green-700 text-white dark:text-green-100' : 'bg-yellow-100 dark:bg-yellow-700 text-white dark:text-yellow-100' }}">
                                 {{ ucfirst($item->status) }}
                             </span>
                         </td>
