@@ -11,19 +11,14 @@
 </head>
 <body>
     <header>
-        {{-- Your site header/logo could go here --}}
-         @include('layouts.navigation')
-        {{-- PASTE THE NAVIGATION CODE HERE --}}
-
+        <x-navigation />
     </header>
 
     <main>
-        {{-- This is where the content from other pages will be injected --}}
         @yield('content')
+
     </main>
 
-    <footer>
-        {{-- Your site footer could go here --}}
-    </footer>
+   <x-footer />
 </body>
 </html>
