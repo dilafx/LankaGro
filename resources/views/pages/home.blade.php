@@ -1,13 +1,13 @@
 {{-- resources/views/pages/home.blade.php --}}
 
-@extends('layouts.app')
+@extends('components.layouts.public')
 
 @section('content')
-    {{-- Main Content --}}
-    <main class="py-12">
+    {{-- Main Content  --}}
+<main class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-16">
 
-            {{-- Section 1: Welcome Message --}}
+            {{-- Section 1: Welcome Message--}}
             <section class="text-center">
                 <h2 class="text-3xl font-bold mb-4 text-green-900">Welcome to LankaGro</h2>
                 <p class="text-gray-700 max-w-2xl mx-auto">
