@@ -26,16 +26,17 @@
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Roles
                     </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Actions</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                        Actions</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                @foreach($users as $user)
+                @foreach ($users as $user)
                     <tr wire:key="{{ $user->id }}">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-white">{{ $user->name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-white">{{ $user->email }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            @foreach($user->roles as $role)
+                            @foreach ($user->roles as $role)
                                 <span wire:key="{{ $role->id }}"
                                     class="inline-flex px-2 py-1 text-xs bg-blue-100 dark:bg-blue-700 text-blue-800 dark:text-white rounded-full">
                                     {{ $role->name }}
@@ -67,7 +68,7 @@
     </div>
 
     <!-- Modal -->
-    @if($showModal)
+    @if ($showModal)
         <div class="fixed inset-0  backdrop-blur-md overflow-y-auto h-full w-full z-50">
             <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white dark:bg-gray-800">
                 <div class="mt-3">
@@ -80,28 +81,34 @@
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
                             <input type="text" wire:model="name"
                                 class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                            @error('name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-4">
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
                             <input type="email" wire:model="email"
                                 class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                            @error('email')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-4">
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
                             <input type="password" wire:model="password"
                                 class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            @error('password') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                            @error('password')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-4">
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Roles</label>
                             <select multiple wire:model="selectedRoles"
                                 class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                                @foreach($roles as $role)
+                                @foreach ($roles as $role)
                                     <option value="{{ $role->name }}">{{ $role->name }}</option>
                                 @endforeach
                             </select>

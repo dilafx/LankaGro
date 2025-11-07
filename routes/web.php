@@ -8,12 +8,13 @@ use App\Livewire\TutorialManagement;
 use App\Livewire\UserManagement;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Livewire\Admin\Dashboard;
 
 Route::get('/', function () {
     return view('pages.home');
 })->name('home');
 
-Route::view('admin/dashboard', 'admin.dashboard')
+Route::get('dashboard', App\Livewire\Admin\Dashboard::class)
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
