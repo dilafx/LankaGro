@@ -8,14 +8,11 @@
 
     <title>{{ $title ?? 'Laravel' }}</title>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> --}}
-    <script src="https://cdn.tailwindcss.com"></script>
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-     {{-- @vite('resources/css/app.css') --}}
+     @vite('resources/css/app.css')
     {{-- @yield('styles') --}}
     @livewireStyles
 </head>
@@ -28,7 +25,7 @@
     </flux:main>
 
     @livewireScripts
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     {{-- @yield('scripts') --}}
 </body>
 
