@@ -3,6 +3,7 @@
 LankaGro is a comprehensive web platform built with Laravel and Livewire, designed to serve as a central hub for agricultural information. It features a powerful admin dashboard for managing content and a public-facing site for farmers and visitors to access news, events, and agricultural solutions.
 
 
+<img width="1917" height="881" alt="Screenshot 2025-11-07 222456" src="https://github.com/user-attachments/assets/ab51d413-aa6c-4d5d-8324-e16c777f9528" />
 
 ## About The Project
 
@@ -53,7 +54,7 @@ Follow these instructions to get a local copy up and running for development and
 
 1.  **Clone the repository:**
     ```sh
-    git clone [https://github.com/your-username/LankaGro.git](https://github.com/your-username/LankaGro.git)
+    git clone (https://github.com/dilafx/LankaGro.git)
     cd LankaGro
     ```
 
@@ -74,7 +75,7 @@ Follow these instructions to get a local copy up and running for development and
 
 5.  **Generate an application key:**
     ```sh
-    php artisan key:generate
+    php artisan key: generate
     ```
 
 6.  **Configure your `.env` file:**
