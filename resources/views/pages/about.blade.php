@@ -15,135 +15,108 @@
                 About LankaGro
             </h1>
             <p class="text-lg text-green-800 leading-relaxed">
-                Transforming Sri Lankan agriculture with innovation, sustainability, and technology.
+                Empowering Sri Lankan farmers through innovation, sustainability, and smart technology.
             </p>
         </div>
-        <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-48 h-48 bg-amber-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+        <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-48 h-48 bg-lime-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
     </section>
 
-    {{-- 🌱 MISSION SECTION --}}
+    {{-- 🌿 WHO WE ARE --}}
     <section class="py-24 px-6 bg-gradient-to-r from-lime-100 via-green-50 to-amber-100">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="relative group">
-                <div class="absolute -inset-2 bg-gradient-to-r from-lime-400 to-green-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition"></div>
+        <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-8 text-green-800">Who We Are</h2>
+            <p class="text-green-700 text-lg leading-relaxed mb-6">
+                <strong>LankaGro</strong> is a student-led digital transformation initiative focused on elevating Sri Lanka’s agricultural sector through innovative, data-driven web technologies.
+                Developed by a team of final-year software engineering students from <strong>The Open University of Sri Lanka</strong>, this project is part of the
+                <strong>EEY4189 Software Design in Group</strong> module and represents a fusion of academic rigor, technical excellence, and social responsibility.
+            </p>
+            <p class="text-green-700 text-lg leading-relaxed">
+                Our mission is to empower farmers—especially those in rural and underserved regions—with centralized access to agricultural knowledge, practical tools, and decision-making support.
+                By integrating modern software practices with localized content delivery, <strong>LankaGro</strong> aims to bridge the digital divide and promote sustainable agricultural development.
+            </p>
+        </div>
+    </section>
+
+    {{-- 🌱 MISSION & VISION --}}
+    <section class="py-24 px-6 bg-gradient-to-br from-green-100 via-amber-50 to-lime-100">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
                 <img src="{{ asset('images/farmer.png') }}" alt="Farmers"
-                     class="relative rounded-3xl shadow-2xl ring-4 ring-green-300/40 group-hover:scale-[1.02] transition duration-500">
+                     class="rounded-3xl shadow-2xl ring-4 ring-green-300/40">
             </div>
             <div data-aos="fade-left">
-                <h2 class="text-4xl font-bold mb-6 text-green-800">
-                    Our Mission & Vision
-                </h2>
-                <p class="text-green-700 mb-6 leading-relaxed">
-                    At LankaGro, our mission is to modernize agriculture through smart digital tools and education.
-                    We empower farmers to make data-informed decisions while staying rooted in sustainable traditions.
+                <h2 class="text-4xl font-bold mb-6 text-green-800">Our Mission</h2>
+                <p class="text-green-700 mb-8 leading-relaxed">
+                    To centralize agricultural resources and tools into a single digital platform that supports Sri Lankan farmers
+                    in making informed decisions, adopting modern techniques, and connecting with the wider farming community.
                 </p>
+
+                <h2 class="text-4xl font-bold mb-6 text-green-800">Our Vision</h2>
                 <p class="text-green-700 leading-relaxed">
-                    Our vision is to cultivate a connected, self-sustaining agricultural ecosystem across Sri Lanka — one that grows together with the land.
+                    A digitally connected agricultural ecosystem where every farmer in Sri Lanka has the knowledge, tools,
+                    and support to thrive.
                 </p>
             </div>
         </div>
     </section>
 
-    {{-- 🌾 FEATURE SECTION --}}
-    <section class="py-24 px-6 bg-gradient-to-br from-green-100 via-amber-50 to-lime-100 text-center">
+    {{-- 🌾 NEW FEATURES SECTION --}}
+    <section class="py-24 px-6 bg-gradient-to-r from-lime-50 via-amber-50 to-green-50 text-center">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-green-800">
-                What We Offer
-            </h2>
+            <h2 class="text-4xl font-bold mb-12 text-green-800">Our New Features</h2>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
                 @foreach([
-                    ['AI Crop Assistant','Use intelligent predictions to enhance productivity and reduce risks.','images/Rice.png','from-green-400 to-lime-300'],
-                    ['Smart Market Insights','Find fair prices, buyer trends, and community market analysis.','images/Tea.png','from-amber-400 to-yellow-300'],
-                    ['Eco Farming Tools','Monitor soil health, irrigation levels, and eco-footprints easily.','images/coconut.png','from-lime-400 to-green-300']
+                    ['🤖 AI Crop Advisor','Receive personalized recommendations for crop selection and planting schedules using AI-driven insights.'],
+                    ['🌦️ Weather & Soil Dashboard','Track live weather, rainfall, and soil health metrics tailored for your region.'],
+                    ['💬 Community Forum','Join an interactive forum to discuss, learn, and share agricultural experiences with peers.'],
+                    ['💹 Market Price Tracker','Monitor real-time market prices to make informed selling and trading decisions.'],
+                    ['🌟 Success Stories','Explore inspiring stories from local farmers who grew their yields through LankaGro tools.'],
+                    ['📱 Mobile-Friendly Access','Use the platform easily on smartphones, even with low internet connectivity.']
                 ] as $feature)
-                <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 150 }}" class="relative p-[2px] rounded-3xl shadow-xl bg-gradient-to-br {{ $feature[3] }} hover:scale-[1.02] transition">
-                    <div class="bg-white rounded-3xl p-10 h-full flex flex-col items-center justify-between text-green-900">
-                        <img src="{{ asset($feature[2]) }}" class="w-24 h-24 object-contain mb-6 crop-preview" data-info="{{ $feature[0] }}: {{ $feature[1] }}">
-                        <h3 class="text-2xl font-semibold mb-3">{{ $feature[0] }}</h3>
-                        <p class="text-sm text-green-700">{{ $feature[1] }}</p>
-                    </div>
+                <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}"
+                     class="bg-white p-10 rounded-3xl shadow-xl border border-green-200 hover:scale-[1.03] transition duration-300">
+                    <div class="text-4xl mb-4">{{ $feature[0] }}</div>
+                    <p class="text-green-700 text-lg">{{ $feature[1] }}</p>
                 </div>
                 @endforeach
             </div>
-            <p id="crop-info" class="text-green-700 mt-4 text-center text-lg"></p>
         </div>
     </section>
 
-    {{-- 🌍 SMART FARMING SOLUTIONS --}}
-    <section class="py-24 bg-gradient-to-r from-green-200 via-lime-100 to-amber-100 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1505731132164-cca7b54b94a6?auto=format&fit=crop&w=1920&q=80')] opacity-10 bg-cover"></div>
-        <div class="max-w-6xl mx-auto relative text-center px-6">
-            <h2 class="text-4xl font-bold mb-10 text-green-800">
-                Smart Farming Solutions
-            </h2>
-            <p class="text-green-700 mb-12 max-w-3xl mx-auto">
-                LankaGro brings the power of technology directly to the field — integrating IoT, automation,
-                and cloud data for precision farming that saves time, water, and resources.
+    {{-- 💧 WHY IT MATTERS --}}
+    <section class="py-24 px-6 bg-gradient-to-br from-green-200 via-lime-100 to-amber-100 text-center">
+        <div class="max-w-5xl mx-auto" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-8 text-green-800">Why It Matters</h2>
+            <p class="text-green-700 text-lg leading-relaxed">
+                Sri Lanka’s farmers face ongoing challenges in accessing reliable information, adopting new technologies,
+                and managing resources efficiently. <strong>LankaGro</strong> bridges this gap by offering a unified, responsive,
+                and farmer-friendly platform that supports smarter farming, sustainable practices, and community growth.
             </p>
+        </div>
+    </section>
 
-            <div class="grid md:grid-cols-3 gap-8">
+    {{-- 👥 OUR TEAM --}}
+    <section class="py-24 px-6 bg-gradient-to-br from-lime-100 via-amber-50 to-green-100">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12 text-green-800">Our Team</h2>
+            <div class="flex gap-6 overflow-x-auto py-4 px-2 scrollbar-thin scrollbar-thumb-green-400 scrollbar-track-green-100">
                 @foreach([
-                    ['IoT Sensors','Real-time monitoring of soil moisture, humidity, and temperature.','🌤️'],
-                    ['Drone Analytics','Aerial mapping for efficient land management and pest control.','🚁'],
-                    ['Smart Irrigation','AI-based water scheduling to optimize irrigation and save water.','💧']
-                ] as $solution)
-                <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 150 }}" class="bg-white rounded-3xl p-8 shadow-xl hover:scale-[1.03] transition border border-green-200">
-                    <div class="text-5xl mb-4">{{ $solution[2] }}</div>
-                    <h3 class="text-2xl font-bold mb-3 text-green-800">{{ $solution[0] }}</h3>
-                    <p class="text-green-700">{{ $solution[1] }}</p>
+                    ['H.M.D.R Heenkenda ','Team Leader','https://randomuser.me/api/portraits/men/32.jpg'],
+                    ['H.C Nawodani  ','UI/UX Designer','https://randomuser.me/api/portraits/women/68.jpg'],
+                    ['W.D.K.I Senavirathna','Backend Developer','https://randomuser.me/api/portraits/men/75.jpg'],
+                    ['Imalka Ireshan','Frontend Developer','https://randomuser.me/api/portraits/men/9.jpg']
+                ] as $member)
+                <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 150 }}"
+                     class="flex-shrink-0 w-72 bg-white p-8 rounded-3xl shadow-lg border border-green-200 hover:scale-[1.05] transition duration-300">
+                    <img src="{{ $member[2] }}" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-green-400/50 object-cover">
+                    <h3 class="text-xl font-semibold text-green-800">{{ $member[0] }}</h3>
+                    <p class="text-green-700 font-medium">{{ $member[1] }}</p>
                 </div>
                 @endforeach
             </div>
         </div>
     </section>
-
-  {{-- 👥 TEAM SECTION --}}
-<section class="py-24 px-6 bg-gradient-to-br from-lime-100 via-amber-50 to-green-100">
-    <div class="max-w-7xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-12 text-green-800">
-            Meet Our Team
-        </h2>
-
-        {{-- Horizontal Scroll Container --}}
-        <div class="flex gap-6 overflow-x-auto py-4 px-2 scrollbar-thin scrollbar-thumb-green-400 scrollbar-track-green-100">
-            @foreach([
-                ['Sahan Perera','CEO & Founder','https://randomuser.me/api/portraits/men/32.jpg'],
-                ['Nadeesha Silva','CTO','https://randomuser.me/api/portraits/women/68.jpg'],
-                ['Ravindu Fernando','Head of Operations','https://randomuser.me/api/portraits/men/75.jpg'],
-                ['Imalka Ireshan','Head of Operations','https://randomuser.me/api/portraits/men/9.jpg']
-            ] as $member)
-            <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 150 }}"
-                 class="flex-shrink-0 w-72 bg-white p-8 rounded-3xl shadow-lg border border-green-200 hover:scale-[1.05] transition duration-300">
-                <img src="{{ $member[2] }}" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-green-400/50 object-cover">
-                <h3 class="text-xl font-semibold text-green-800">{{ $member[0] }}</h3>
-                <p class="text-green-700 font-medium">{{ $member[1] }}</p>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-{{-- Optional: Custom Scrollbar Styling --}}
-<style>
-/* Thin Scrollbar for horizontal scroll */
-.scrollbar-thin::-webkit-scrollbar {
-    height: 8px;
-}
-.scrollbar-thin::-webkit-scrollbar-track {
-    background: #d9f99d; /* green-100 */
-    border-radius: 10px;
-}
-.scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: #4ade80; /* green-400 */
-    border-radius: 10px;
-}
-.scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: #4ade80 #d9f99d;
-}
-</style>
-
 
     {{-- 📊 IMPACT COUNTERS --}}
     <section class="py-24 bg-green-50 text-center">
@@ -154,11 +127,11 @@
             </div>
             <div>
                 <h3 class="text-5xl font-bold text-green-800 counter" data-target="120">0</h3>
-                <p class="text-green-700">Smart Sensors Deployed</p>
+                <p class="text-green-700">Smart Tools Integrated</p>
             </div>
             <div>
                 <h3 class="text-5xl font-bold text-green-800 counter" data-target="85">0</h3>
-                <p class="text-green-700">Sustainable Farms</p>
+                <p class="text-green-700">Sustainable Projects</p>
             </div>
         </div>
     </section>
@@ -184,13 +157,6 @@
 <script>
 AOS.init({ duration: 1000, offset: 150 });
 
-// Hero Parallax Effect
-const hero = document.querySelector('.hero-section');
-window.addEventListener('scroll', () => {
-    const offset = window.scrollY * 0.3;
-    hero.style.backgroundPositionY = `${offset}px`;
-});
-
 // Counters
 const counters = document.querySelectorAll(".counter");
 counters.forEach(counter => {
@@ -208,16 +174,6 @@ counters.forEach(counter => {
     updateCount();
 });
 
-// Crop Preview Info
-document.querySelectorAll('.crop-preview').forEach(img => {
-    img.addEventListener('mouseover', () => {
-        document.getElementById('crop-info').innerText = img.getAttribute('data-info');
-    });
-    img.addEventListener('mouseout', () => {
-        document.getElementById('crop-info').innerText = '';
-    });
-});
-
 // Dark Mode Toggle
 const toggle = document.getElementById('darkModeToggle');
 toggle.addEventListener('click', () => {
@@ -226,14 +182,16 @@ toggle.addEventListener('click', () => {
 });
 </script>
 
+{{-- 🌿 STYLE --}}
 <style>
-/* Dark Mode Styles */
-body.dark {
-    background-color: #1a202c;
-    color: #c6f6d5;
-}
+.scrollbar-thin::-webkit-scrollbar { height: 8px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: #d9f99d; border-radius: 10px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background-color: #4ade80; border-radius: 10px; }
+.scrollbar-thin { scrollbar-width: thin; scrollbar-color: #4ade80 #d9f99d; }
+
+body.dark { background-color: #1a202c; color: #c6f6d5; }
 body.dark a { color: #9ae6b4; }
-body.dark .bg-white { background-color: #2d3748; }
+body.dark .bg-white { background-color: #2d3748; color: #e2e8f0; }
 </style>
 
 @endsection
