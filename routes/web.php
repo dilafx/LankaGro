@@ -9,6 +9,7 @@ use App\Livewire\UserManagement;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Livewire\Admin\Dashboard;
+use App\Models\News;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -44,9 +45,22 @@ Route::view('/about', 'pages.about')->name('about');
 Route::view('/contact', 'pages.contact')->name('contact');
 Route::view('/calculator','pages.calculator')->name('calculator');
 Route::view('/events','pages.events')->name('events');
-Route::view('/news','pages.news')->name('news');
+//Route::view('/news','pages.news')->name('news');
 Route::view('/solutions','pages.solutions')->name('solutions');
 Route::view('/tutorial','pages.tutorial')->name('tutorial');
 Route::view('/home','pages.home')->name('home');
 
+// 1. News Index Page (List of all news)
+Route::get('/news', function () {
+    $news = News::where('status', 'published')->latest()->get();
+    return view('pages.news', ['news' => $news]);
+})->name('news');
 
+// 2. Single News Article Page
+Route::get('/news/{news}', function (News $news) {
+    // Optional: Prevent viewing drafts
+    if ($news->status !== 'published') {
+        abort(404);
+    }
+    return view('pages.news-single', ['article' => $news]);
+})->name('news.show');
