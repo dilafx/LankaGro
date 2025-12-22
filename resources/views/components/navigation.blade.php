@@ -249,7 +249,7 @@
         <div class="nav-container">
             <div class="logo-section" onclick="window.location.href='/'">
                 <div class="logo-icon">
-                    <img src="{{ asset('images/LOGO.jpg') }}" alt="Logo">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo">
                 </div>
                 <div>
                     <div class="logo-text">LankaGro</div>
