@@ -13,6 +13,7 @@ class Event extends Model
         'end_time',
         'location',
         'capacity',
+        'image',
         'user_id',
     ];
 

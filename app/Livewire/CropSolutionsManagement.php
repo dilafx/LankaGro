@@ -86,13 +86,14 @@ class CropSolutionsManagement extends Component
         if ($this->image) {
 
             if ($this->isEditing && $this->existingImageUrl) {
-                $oldPath = Str::replace('/storage', 'public', $this->existingImageUrl);
+                //$oldPath = Str::replace('/storage', 'public', $this->existingImageUrl);
+                $oldPath = str_replace('/storage/', '', $this->existingImageUrl);
                 if (Storage::exists($oldPath)) {
                     Storage::delete($oldPath);
                 }
             }
             // Store new image in 'public/crop_solution_images'
-            $path = $this->image->store('public/crop_solution_images');
+           $path = $this->image->store('crop_solution_images', 'public');
             $solutionData['image'] = Storage::url($path);
         }
 

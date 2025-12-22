@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('end_time');
             $table->string('location')->nullable();
             $table->integer('capacity')->nullable(); // Max attendees
+            $table->string('image')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Admin who created it
             $table->timestamps();
         });

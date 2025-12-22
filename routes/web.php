@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Livewire\Admin\Dashboard;
 use App\Models\News;
+use App\Models\Tutorial;
+use App\Models\CropSolution;
+use Illuminate\Http\Request;
+use App\Models\Event;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -64,3 +68,70 @@ Route::get('/news/{news}', function (News $news) {
     }
     return view('pages.news-single', ['article' => $news]);
 })->name('news.show');
+
+// 1. Tutorial List Page
+Route::get('/tutorial', function () {
+    $tutorials = Tutorial::with('user')->latest()->get();
+    return view('pages.tutorial', ['tutorials' => $tutorials]);
+})->name('tutorial');
+
+// 2. Single Tutorial View
+Route::get('/tutorial/{tutorial}', function (Tutorial $tutorial) {
+    return view('pages.tutorial-single', ['tutorial' => $tutorial]);
+})->name('tutorial.show');
+
+// 1. Solutions List Page
+Route::get('/solutions', function (Request $request) {
+    // 1. Start the query
+    $query = CropSolution::with('user')->latest();
+
+    // 2. Apply Filters if selected
+    if ($request->filled('crop')) {
+        $query->where('crop_name', $request->crop);
+    }
+
+    if ($request->filled('type')) {
+        $query->where('problem_type', $request->type);
+    }
+
+    if ($request->filled('search')) {
+        $search = $request->search;
+        $query->where(function($q) use ($search) {
+            $q->where('problem_name', 'like', "%{$search}%")
+              ->orWhere('description', 'like', "%{$search}%");
+        });
+    }
+
+    // 3. Fetch Results
+    $solutions = $query->get();
+
+    // 4. Get Unique options for Dropdowns (to avoid manual typing)
+    $crops = CropSolution::select('crop_name')->distinct()->pluck('crop_name');
+    $types = CropSolution::select('problem_type')->distinct()->pluck('problem_type');
+
+    return view('pages.solutions', [
+        'solutions' => $solutions,
+        'crops' => $crops,
+        'types' => $types
+    ]);
+})->name('solutions');
+
+// 2. Single Solution View
+Route::get('/solutions/{solution}', function (CropSolution $solution) {
+    return view('pages.solutions-single', ['solution' => $solution]);
+})->name('solutions.show');
+
+
+// 1. Events List
+Route::get('/events', function () {
+    // Fetch upcoming events first
+    $events = Event::where('end_time', '>=', now())
+                   ->orderBy('start_time', 'asc')
+                   ->get();
+    return view('pages.events', ['events' => $events]);
+})->name('events');
+
+// 2. Single Event Details
+Route::get('/events/{event}', function (Event $event) {
+    return view('pages.events-single', ['event' => $event]);
+})->name('events.show');
