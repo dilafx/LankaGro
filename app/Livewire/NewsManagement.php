@@ -86,7 +86,8 @@ class NewsManagement extends Component
                 }
             }
 
-            $path = $this->image->store('public/news_images');
+            //$path = $this->image->store('public/news_images');
+            $path = $this->image->store('news_images', 'public');
             $newsData['image'] = Storage::url($path);
         }
 

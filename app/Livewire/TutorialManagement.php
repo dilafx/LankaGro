@@ -116,7 +116,7 @@ class TutorialManagement extends Component
                 }
             }
             // Store new image in 'public/tutorial_images'
-            $path = $this->image->store('public/tutorial_images');
+            $path = $this->image->store('tutorial_images', 'public');
             $tutorialData['image'] = Storage::url($path);
         }
 

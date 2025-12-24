@@ -28,6 +28,7 @@
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
             <thead class="bg-gray-50 dark:bg-gray-700">
                 <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Image</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Title</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Start Time</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">End Time</th>
@@ -39,31 +40,35 @@
             <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                 @forelse ($events as $event)
                     <tr wire:key="{{ $event->id }}">
+                        {{-- Image Column --}}
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            @if($event->image)
+                                <img src="{{ asset($event->image) }}" alt="Event Image" class="h-10 w-10 rounded-full object-cover">
+                            @else
+                                <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-xs">
+                                    No Img
+                                </div>
+                            @endif
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ Str::limit($event->title, 40) }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $event->start_time->format('Y-m-d H:i') }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $event->end_time->format('Y-m-d H:i') }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $event->location ?? 'N/A' }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $event->capacity ?? 'Unlimited' }}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            {{-- @can('event.edit') --}}
                             <button wire:click="edit({{ $event->id }})"
                                     class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-200 mr-2">
                                 Edit
                             </button>
-                            {{-- @endcan --}}
-                            {{-- @can('event.delete') --}}
                             <button wire:click="delete({{ $event->id }})" wire:confirm="Are you sure you want to delete this event?"
                                     class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-200">
                                 Delete
                             </button>
-                            {{-- @endcan --}}
-                            {{-- Link to view registrations (Add later if needed) --}}
-                            {{-- <a href="{{ route('admin.events.registrations', $event->id) }}" class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-200 ml-2">Registrations</a> --}}
                         </td>
                     </tr>
                 @empty
-                     <tr>
-                        <td colspan="6" class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500 dark:text-gray-400">
+                    <tr>
+                        <td colspan="7" class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500 dark:text-gray-400">
                             No events found.
                         </td>
                     </tr>
@@ -80,7 +85,6 @@
     {{-- Modal --}}
     @if($showModal)
         <div class="fixed inset-0 backdrop-blur-md overflow-y-auto h-full w-full z-50 flex items-center justify-center p-4">
-            {{-- Modal Content --}}
             <div class="relative mx-auto p-5 border w-full max-w-2xl shadow-lg rounded-md bg-white dark:bg-gray-800">
                 <div class="mt-3">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4 text-center">
@@ -89,6 +93,52 @@
 
                     <form wire:submit.prevent="save">
                         <div class="space-y-4">
+
+                            {{-- Image Upload Section --}}
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Event Image</label>
+
+                                <div class="mt-2 flex items-center space-x-4">
+                                    {{-- Preview Logic --}}
+                                    @if ($image)
+                                        {{-- 1. New Upload Preview --}}
+                                        <div class="relative">
+                                            <img src="{{ $image->temporaryUrl() }}" class="h-20 w-20 object-cover rounded-lg border border-gray-300">
+                                            <span class="absolute top-0 right-0 -mt-2 -mr-2 bg-green-500 text-white text-xs px-1 rounded">New</span>
+                                        </div>
+                                    @elseif ($existingImageUrl)
+                                        {{-- 2. Existing Image Preview --}}
+                                        <div class="relative">
+                                            <img src="{{ asset($existingImageUrl) }}" class="h-20 w-20 object-cover rounded-lg border border-gray-300">
+                                            <span class="absolute top-0 right-0 -mt-2 -mr-2 bg-gray-500 text-white text-xs px-1 rounded">Current</span>
+                                        </div>
+                                    @else
+                                        {{-- 3. Placeholder --}}
+                                        <div class="h-20 w-20 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 border border-dashed border-gray-300">
+                                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                        </div>
+                                    @endif
+
+                                    {{-- Input Field --}}
+                                    <div class="flex-1">
+                                        <input type="file" wire:model="image" accept="image/*"
+                                            class="block w-full text-sm text-gray-500 dark:text-gray-400
+                                            file:mr-4 file:py-2 file:px-4
+                                            file:rounded-full file:border-0
+                                            file:text-sm file:font-semibold
+                                            file:bg-blue-50 file:text-blue-700
+                                            hover:file:bg-blue-100">
+
+                                        <div wire:loading wire:target="image" class="text-sm text-blue-500 mt-1">
+                                            Uploading...
+                                        </div>
+                                        @error('image') <span class="text-red-500 text-sm block mt-1">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                            </div>
+
                             {{-- Title --}}
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
@@ -136,7 +186,6 @@
                                        class="mt-1 block w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                                 @error('capacity') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                             </div>
-
 
                             {{-- Buttons --}}
                             <div class="flex justify-end space-x-2 pt-4">
