@@ -3,7 +3,6 @@
 LankaGro is a comprehensive web platform built with Laravel and Livewire, designed to serve as a central hub for agricultural information. It features a powerful admin dashboard for managing content and a public-facing site for farmers and visitors to access news, events, and agricultural solutions.
 
 
-<img width="1917" height="881" alt="Screenshot 2025-11-07 222456" src="https://github.com/user-attachments/assets/ab51d413-aa6c-4d5d-8324-e16c777f9528" />
 
 ## About The Project
 
