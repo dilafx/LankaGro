@@ -1,4 +1,5 @@
 {{-- Credit: Lucide (https://lucide.dev) --}}
+@use('Flux\Flux')
 
 @props([
     'variant' => 'outline',

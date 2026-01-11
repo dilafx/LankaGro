@@ -15,11 +15,27 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
+                <flux:navlist.group :heading="__('user management')" class="grid">
+                    <flux:navlist.item icon="user-group" :href="route('user.index')" :current="request()->routeIs('user.index')" wire:navigate>{{ __('Manage User') }}</flux:navlist.item>
+                    @can(abilities:'role.view')
+                    <flux:navlist.item icon="user-circle" :href="route('role.manager')" :current="request()->routeIs('role.manager')" wire:navigate>{{ __('Manage Role') }}</flux:navlist.item>
+                    @endcan('role.view')
+                </flux:navlist.group>
+                <flux:navlist.group :heading="__('content management')" class="grid">
+                    <flux:navlist.item icon="newspaper" :href="route('news.manager')" :current="request()->routeIs('news.manager')" wire:navigate>{{ __('Manage News') }}</flux:navlist.item>
+                    <flux:navlist.item icon="video-camera" :href="route('tutorial.manager')" :current="request()->routeIs('tutorial.manager')" wire:navigate>{{ __('Manage Tutorials') }}</flux:navlist.item>
+                    <flux:navlist.item icon="information-circle" :href="route('crop.solution.manager')" :current="request()->routeIs('crop.solution.manager')" wire:navigate>{{ __('Crop Solutions') }}</flux:navlist.item>
+
+                </flux:navlist.group>
+                <flux:navlist.group :heading="__('event management')" class="grid">
+                    <flux:navlist.item icon="calendar-days" :href="route('event.manager')" :current="request()->routeIs('event.manager')" wire:navigate>{{ __('Manage Event') }}</flux:navlist.item>
+
+                </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
 
-            <flux:navlist variant="outline">
+            {{-- <flux:navlist variant="outline">
                 <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
                 {{ __('Repository') }}
                 </flux:navlist.item>
@@ -27,7 +43,7 @@
                 <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
                 {{ __('Documentation') }}
                 </flux:navlist.item>
-            </flux:navlist>
+            </flux:navlist> --}}
 
             <!-- Desktop User Menu -->
             <flux:dropdown class="hidden lg:block" position="bottom" align="start">
@@ -124,6 +140,7 @@
                 </flux:menu>
             </flux:dropdown>
         </flux:header>
+
 
         {{ $slot }}
 
