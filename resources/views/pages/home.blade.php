@@ -1,5 +1,3 @@
-{{-- resources/views/pages/home.blade.php --}}
-
 @extends('components.layouts.public')
 
 @section('content')
@@ -371,9 +369,19 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
+            </div>
         </div>
-    </main>
+    </div>
+
+    {{-- 5. Upcoming Events Preview --}}
+    <div class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900">Don't Miss Out</h2>
+            <p class="mt-4 text-lg text-gray-500 mb-8">Join workshops, training sessions, and agricultural fairs near you.</p>
+            <a href="{{ route('events') }}" class="inline-block bg-green-100 text-green-700 px-8 py-3 rounded-full font-bold hover:bg-green-200 transition">
+                View All Upcoming Events
+            </a>
+        </div>
+    </div>
 
 @endsection

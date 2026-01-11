@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +38,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -87,6 +89,7 @@
                 </svg>
             </button>
         </div>
+    </nav>
 
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden lg:hidden pb-5 mobile-menu-active">
