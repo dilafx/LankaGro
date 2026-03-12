@@ -8,7 +8,6 @@ use App\Livewire\TutorialManagement;
 use App\Livewire\UserManagement;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
-use App\Livewire\Admin\Dashboard;
 use App\Models\News;
 use App\Models\Tutorial;
 use App\Models\CropSolution;
@@ -123,11 +122,10 @@ Route::get('/solutions/{solution}', function (CropSolution $solution) {
 
 
 // 1. Events List
+// routes/web.php
 Route::get('/events', function () {
-    // Fetch upcoming events first
-    $events = Event::where('end_time', '>=', now())
-                   ->orderBy('start_time', 'asc')
-                   ->get();
+    $events = Event::orderBy('start_time', 'asc')->get();
+
     return view('pages.events', ['events' => $events]);
 })->name('events');
 

@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-lime-600 via-lime-500 to-emerald-500 text-white py-32 overflow-hidden">
+<section class="relative bg-linear-to-br from-lime-600 via-lime-500 to-emerald-500 text-white py-32 overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
     
@@ -65,25 +65,25 @@
                 <h3 class="text-2xl font-black text-gray-900 mb-6">The Challenge</h3>
                 <ul class="space-y-4">
                     <li class="flex items-start">
-                        <span class="flex-shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <span class="shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <span class="text-red-600 text-sm font-bold">✕</span>
                         </span>
                         <span class="text-gray-700">Fragmented agricultural information sources</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="flex-shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <span class="shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <span class="text-red-600 text-sm font-bold">✕</span>
                         </span>
                         <span class="text-gray-700">Lack of integrated farm management tools</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="flex-shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <span class="shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <span class="text-red-600 text-sm font-bold">✕</span>
                         </span>
                         <span class="text-gray-700">Limited access to timely expert advice</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="flex-shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <span class="shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <span class="text-red-600 text-sm font-bold">✕</span>
                         </span>
                         <span class="text-gray-700">Absence of peer-to-peer collaboration platforms</span>
@@ -92,7 +92,7 @@
             </div>
 
             <!-- Solution -->
-            <div class="bg-gradient-to-br from-lime-50 to-emerald-50 p-10 rounded-3xl shadow-xl border-l-4 border-lime-500">
+            <div class="bg-linear-to-br from-lime-50 to-emerald-50 p-10 rounded-3xl shadow-xl border-l-4 border-lime-500">
                 <div class="bg-lime-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -101,25 +101,25 @@
                 <h3 class="text-2xl font-black text-gray-900 mb-6">Our Solution</h3>
                 <ul class="space-y-4">
                     <li class="flex items-start">
-                        <span class="flex-shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <span class="shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <span class="text-white text-sm font-bold">✓</span>
                         </span>
                         <span class="text-gray-700 font-medium">Centralized digital hub for all resources</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="flex-shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <span class="shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <span class="text-white text-sm font-bold">✓</span>
                         </span>
                         <span class="text-gray-700 font-medium">Comprehensive farm management tools</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="flex-shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <span class="shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <span class="text-white text-sm font-bold">✓</span>
                         </span>
                         <span class="text-gray-700 font-medium">Real-time news and expert advice</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="flex-shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                        <span class="shrink-0 w-6 h-6 bg-lime-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
                             <span class="text-white text-sm font-bold">✓</span>
                         </span>
                         <span class="text-gray-700 font-medium">Community forum for collaboration</span>
