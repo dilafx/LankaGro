@@ -112,7 +112,7 @@ class CropSolutionsManagement extends Component
 
     public function delete($id): void
     {
-        // Optional: $this->authorize('cropsolution.delete');
+
         $this->authorize('cropsolution.delete');
         $solution = CropSolution::findOrFail($id);
 

@@ -9,8 +9,6 @@ class CropSolution extends Model
 {
     use HasFactory;
 
-    // Make sure table name matches if not plural 'crop_solutions'
-    // protected $table = 'crop_solutions';
 
     protected $fillable = [
         'crop_name',

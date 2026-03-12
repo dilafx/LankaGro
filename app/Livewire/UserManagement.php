@@ -32,7 +32,8 @@ class UserManagement extends Component
 
     public function edit($id):void
     {
-        $this->authorize(ability:'$id');
+        //$this->authorize(ability:'$id');
+        $this->authorize('user.edit');
         $user=User::findOrFail(id:$id);
         $this->userId=$user->id;
         $this->name=$user->name;
@@ -49,7 +50,8 @@ class UserManagement extends Component
         if($this->isEditing){
             $this->authorize(ability:'user.edit');
             $this->rules['email']='required|email|unique:users,email,'.$this->userId;
-            $this->rules['password']='nullable|min;8';
+            //$this->rules['password']='nullable|min;8';
+            $this->rules['password']='nullable|min:8';
         }else{
             $this->authorize(ability:'user.create');
         }

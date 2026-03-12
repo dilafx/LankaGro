@@ -51,7 +51,7 @@
                                 </button>
                             @endcan
                             @can('user.delete')
-                                <button wire:click="delete({{ $user->id }})" wire: confirm="Are you sure?"
+                                <button wire:click="delete({{ $user->id }})" wire:confirm="Are you sure?"
                                     class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-200">
                                     Delete
                                 </button>
